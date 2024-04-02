@@ -1,0 +1,23 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: "**"
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: lukka/get-cmake@latest
+      
+      - name: Setup
+        uses: lukka/run-vcpkg@v11
+      
+      - name: Run CMake
+        uses: lukka/run-cmake@v10
+        with:
+          configurePreset: linux-release
+          configurePresetAdditionalArgs: "['-DBUILD_EXAMPLE_APP=ON', '-DBUILD_TESTS=ON']"
+          buildPreset: linux-release
