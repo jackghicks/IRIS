@@ -8,12 +8,16 @@ on:
   #   branches: [ "main" ]
 jobs:
     build:
+      # name: ${{ matrix.os }}-hosted-basic
+      # runs-on: ${{ matrix.os }}
       runs-on: ubuntu-latest
       steps:
       - uses: lukka/get-cmake@latest
       
       - name: Setup
         uses: lukka/run-vcpkg@v11
+        with:
+          vcpkgGitCommitId: 'a164ace504d8fe6f50aeec7e235d22b9089ad0d5'
       
       - name: Run CMake
         uses: lukka/run-cmake@v10
