@@ -15,6 +15,9 @@ jobs:
       with:
         submodules: recursive
 
+    - name: Install Visual Studio Build Tools
+      uses: microsoft/setup-msbuild@v1.0.2
+
     - name: Install Emscripten
       uses: mymindstorm/setup-emsdk@v11
       with:
