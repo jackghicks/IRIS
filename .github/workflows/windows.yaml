@@ -18,17 +18,11 @@ jobs:
     - name: Install Visual Studio Build Tools
       uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Install Emscripten
-      uses: mymindstorm/setup-emsdk@v11
-      with:
-        version: 3.1.35
-        actions-cache-folder: 'emsdk-cache'
-
     - name: Configure CMake
       run: |
         mkdir build
         cd build
-        emcmake cmake --preset windows-release -DCMAKE_TOOLCHAIN_FILE="%GITHUB_WORKSPACE%/vcpkg/scripts/buildsystems/vcpkg.cmake" ..
+        cmake --preset windows-release ..
       env:
         VCPKG_ROOT: ${{ github.workspace }}/vcpkg
 
@@ -40,5 +34,5 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: iris-wasm
+        name: iris-win64
         path: build/iris.*
