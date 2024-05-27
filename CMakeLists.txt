@@ -66,6 +66,7 @@ set(SOURCE_FILES
     "src/TransitionTrackerByFPS.cpp"
     "src/TransitionTrackerByTime.cpp"
     "src/ScopeProfiler.cpp"
+    "src/IrisHelper.cpp"
 )
 
 source_group("Source files" FILES ${SOURCE_FILES}) 

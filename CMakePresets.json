@@ -15,7 +15,11 @@
       "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
       "cacheVariables": {
         "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin/install/${presetName}",
-        "WINDOWS_PIPELINE": false
+        "WINDOWS_PIPELINE": false,
+        "VCPKG_ROOT": "P:/Development/vcpkg"
+      },
+      "environment": {
+        "VCPKG_ROOT": "P:/Development/vcpkg"
       }
     },
     {
