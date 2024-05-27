@@ -18,9 +18,18 @@ jobs:
     - name: Install Visual Studio Build Tools
       uses: microsoft/setup-msbuild@v1.0.2
 
+    - name: Set up Visual Studio environment
+      run: |
+        # Find the latest version of Visual Studio
+        $vsInstallPath = &"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+        # Set up the environment
+        &"$vsInstallPath\Common7\Tools\VsDevCmd.bat"
+        # Verify the compiler is available
+        cl.exe
+
     - name: Install Ninja
       run: choco install ninja
-      
+
     - name: Configure CMake
       run: |
         mkdir build
