@@ -47,13 +47,6 @@ jobs:
         VCPKG_ROOT: ${{ github.workspace }}/vcpkg
         VCPKG_BINARY_SOURCES: "clear;x-gha,readwrite"
 
-    - name: List "bin/build" content
-      run: |
-        cd bin
-        cd build
-        cd windows-release
-        dir
-        
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
