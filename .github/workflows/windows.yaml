@@ -35,9 +35,7 @@ jobs:
       run: |
         # check we've got cl.exe before continuing 
         cl.exe
-        mkdir build
-        cd build
-        cmake --preset windows-release ..
+        cmake --preset windows-release .
       env:
         VCPKG_ROOT: ${{ github.workspace }}/vcpkg
         VCPKG_BINARY_SOURCES: "clear;x-gha,readwrite"
@@ -50,9 +48,9 @@ jobs:
         VCPKG_ROOT: ${{ github.workspace }}/vcpkg
         VCPKG_BINARY_SOURCES: "clear;x-gha,readwrite"
 
-    - name: List "build" content
+    - name: List "bin" content
       run: |
-        cd build
+        cd bin
         dir
         
     - name: Upload Artifacts
