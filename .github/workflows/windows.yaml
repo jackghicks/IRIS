@@ -51,11 +51,12 @@ jobs:
       run: |
         cd bin
         cd build
-        dir /r
+        cd windows-release
+        dir
         
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
         name: iris-win64
-        path: bin/build/iris.*
+        path: bin/build/windows-release/iris.*
         asset_content_type: application/zip
