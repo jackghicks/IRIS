@@ -43,19 +43,19 @@ jobs:
     - name: Build with CMake
       run: |
         cmake --build . --preset windows-release
-        dir
       env:
         VCPKG_ROOT: ${{ github.workspace }}/vcpkg
         VCPKG_BINARY_SOURCES: "clear;x-gha,readwrite"
 
-    - name: List "bin" content
+    - name: List "bin/build" content
       run: |
         cd bin
+        cd build
         dir
         
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
         name: iris-win64
-        path: build/iris.*
+        path: bin/build/iris.*
         asset_content_type: application/zip
