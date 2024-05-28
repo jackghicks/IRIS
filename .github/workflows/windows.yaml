@@ -46,11 +46,14 @@ jobs:
       run: |
         cmake --build . --preset windows-release
         dir
-        cd build
-        dir
       env:
         VCPKG_ROOT: ${{ github.workspace }}/vcpkg
         VCPKG_BINARY_SOURCES: "clear;x-gha,readwrite"
+
+    - name: List "build" content
+      run: |
+        cd build
+        dir
         
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
