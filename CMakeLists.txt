@@ -29,17 +29,20 @@ endif()
 
 set(PUBLIC_HEADERS
     "include/iris/VideoAnalyser.h"
+    "include/iris/VideoAnalyserV2.h"
     "include/iris/Configuration.h"
     "include/iris/Log.h"
     "include/iris/Result.h"
     "include/iris/TotalFlashIncidents.h"
     "include/iris/ScopeProfiler.h"
+    "include/iris/IrisHelper.h"
 )
 
 source_group("Public header files" FILES ${PUBLIC_HEADERS})
 
 set(SOURCE_FILES
     "src/VideoAnalyser.cpp"
+    "src/VideoAnalyserV2.cpp"
     "src/FrameRgbConverter.cpp"
     "src/Flash.cpp"
     "src/RelativeLuminance.cpp"
